@@ -7,7 +7,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.11.7"
 
 resolvers ++= Seq(
-  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
+  "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 )
 
 libraryDependencies ++= Seq(cache, ws, evolutions
@@ -18,6 +19,8 @@ libraryDependencies ++= Seq(cache, ws, evolutions
   , "com.typesafe.play" %% "play-slick-evolutions" % "1.1.0"
   , "com.typesafe.play" %% "play-specs2" % "2.4.3" % "test"
 )
+
+javaOptions in Test += "-Dconfig.file=conf/application.test.conf"
 
 scalacOptions in Test ++= Seq("-Yrangepos")
 
