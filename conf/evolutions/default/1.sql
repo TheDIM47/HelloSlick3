@@ -1,0 +1,5 @@
+# --- !Ups
+create table ENTITY(ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, NAME VARCHAR NOT NULL);
+
+# --- !Downs
+drop table ENTITY;

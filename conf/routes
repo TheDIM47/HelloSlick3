@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Tasks
+GET           /                           controllers.Application.index
+
+GET           /api/names                  controllers.Application.listNames
+
+POST          /api/names/:name            controllers.Application.insertName(name: String)
+
+PUT           /api/names/:id/:name        controllers.Application.updateName(id: Int, name: String)
+
+DELETE        /api/names/:id              controllers.Application.deleteName(id: Int)
