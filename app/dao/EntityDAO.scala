@@ -4,11 +4,13 @@ import javax.inject.Inject
 
 import models.Entity
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
-import slick.driver.JdbcProfile
+import slick.jdbc.JdbcProfile
 import scala.concurrent.Future
 
-class EntityDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) extends HasDatabaseConfigProvider[JdbcProfile] {
-  import driver.api._
+class EntityDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) 
+  extends HasDatabaseConfigProvider[JdbcProfile] {
+  
+  import profile.api._
   
   private class EntitiesTable(tag: Tag) extends Table[Entity](tag, "ENTITY") {
     def id = column[Int]("ID", O.AutoInc, O.PrimaryKey)
@@ -23,7 +25,6 @@ class EntityDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider
 
   def insert(name: String): Future[Int] = {
     val id = (Entities returning Entities.map(_.id)) += Entity(0, name)
-//    db.run(Entities += Entity(0, name))
     db.run(id)
   }
 

@@ -1,4 +1,4 @@
-Slick 3, Scala 2.11, Play 2.4 Sample
+Slick 3, Scala 2.13, Play 2.8 Sample
 
 API: Single endpoint accepting GET, PUT, POST, DELETE.
 
@@ -10,4 +10,4 @@ POST /api/names/:name - insert new Entity with "name" - return new ID
 
 DELETE /api/names/:id - delete Entity with "id"
 
-Tested with Scala 2.10.6
+Tested with Scala 2.13.4
